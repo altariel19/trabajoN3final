@@ -78,7 +78,7 @@ class ProductManager {
 }
 
 
-const productManager = new ProductManager('productos.json');
+const productManager = new ProductManager('products.json');
 
 productManager.addProduct({ title: "Remera", description: "Color Blanco", price: 14000, thumbnail: "/images/remera1.jpg", code: "1", stock: "10" });
 productManager.addProduct({ title: "Pantalon", description: "Color Gris", price: 24000, thumbnail: "/images/pantalon1.jpg", code: "2", stock: "20" });

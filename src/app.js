@@ -6,9 +6,9 @@ const app = express();
 
 const port = 8080;
 
-const productManager = new ProductManager('./productos.json');
+const productManager = new ProductManager('./products.json');
 
-app.get('productos', (req, res) => {
+app.get('/products', (req, res) => {
   const limit = req.query.limit;
 
   let products = productManager.getProducts();
@@ -17,15 +17,15 @@ app.get('productos', (req, res) => {
     products = products.slice(0, parseInt(limit, 10));
   }
 
-  res.json({ productos });
+  res.json({ product });
 });
 
-app.get('productos/:pid', (req, res) => {
-  const productId = req.params.pid;
+app.get('/products/:pid', (req, res) => {
+  const productId = parseInt(req.params.pid);
   const product = productManager.getProductById(productId);
 
   if (product) {
-    res.json({ productos });
+    res.json({ product });
   } else {
     res.status(404).json({ error: 'Product not found' });
   }
